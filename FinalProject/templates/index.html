@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- CSS Stylesheets with Relative Paths -->
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>AT&T Inc. Data</title>
+  <link rel="stylesheet" type="text/css" href="../static/resources/reset.css">
+  <!-- This line is money! It points your HTML to the CSS file. -->
+  <!-- Notice the "relative" pathway? It matches a file inside our current directory's "assets" folder. Open it to see our style rules. -->
+  <script src="https:/code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https:/cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https:/stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https:/stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../static/resources/styles.css">
+  <script src="https:/cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  <script src="https:/cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+</head>
+
+<body>
+ 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Online Login Analysis</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Options
+                    </a>
+                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url_for('static', filename='resources/agent.html') }}">Agent Activity</a>
+                        <a class="dropdown-item" href="{{ url_for('static', filename='resources/onlinefailures.html') }}">Online Failures</a>
+                        <a class="dropdown-item" href="{{ url_for('static', filename='resources/AgentML.html') }}">OnlineFailures vs AgentActivity</a>
+                        <a class="dropdown-item" href="{{ url_for('static', filename='resources/payments.html') }}">Online Payment</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">HomePage</a>
+                        <a class="dropdown-item" href="{{ url_for('static', filename='resources/data.html') }}">Data Page</a>
+                        <a class="dropdown-item" href="{{ url_for('static', filename='resources/comp.html') }}">Regression-UnauthPayment</a>
+                    
+                    </div>
+                        
+                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('static', filename='resources/comp.html') }}">Comparison</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('static', filename='resources/data.html') }}">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('static', filename='resources/NLPNativecomm.html') }}">NativApp Review Model</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+<header>
+    <div class="jumbotron text-center">
+        <h1>AT&T Data Analysis</h1>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Welcome</a><br>
+        Navigate through site for customer info</p>
+  <p></p>
+      </div>
+ 
+</header>
+<!-- Start of container -->
+<div class="container">
+
+    <!-- <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+      </div> -->
+
+    <section class="row">
+      <div class="col-md-8">
+        <article class="description-content">
+          <h5 class="description-header">Summary: Customer Online Activity Trends</h5>
+          <hr class="description-hr"/>
+          <!-- <img src="../resources/assets/onlinefailures.png" alt="onlinefailures" id="description-image"/> -->
+          <div id="graph_bar"></div>
+          <select id="selDataset" onchange=getData(this.value)>
+              <option value="logininfo">DEFAULT</option>
+              <option value="logininfo/mobile">MOBILE</option>
+              <option value="logininfo/web">WEB</option>
+          </select>
+          <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
+  </div>
+
+
+
+  <div class="col-md-4">
+
+      <!-- Start of Visualizations imageNav Area -->
+      <section id="imageNav-area">
+        <div class="imageNav-content">
+          <h2 class="imageNav-header">Visualizations</h2>
+          <h7>click below images for info..</h7>
+          <hr />
+          <div id="images">
+            <p>online Failures</p>
+            <a href="{{ url_for('static', filename='resources/onlinefailures.html') }}"><img src="{{ url_for('static', filename='resources/assets/onlinefailures.png') }}" alt="Online Failures" class="imageNav-photo"></a> 
+            <p>Agent Activity</p>
+            <a href="{{ url_for('static', filename='resources/agent.html') }}"><img src="{{ url_for('static', filename='resources/assets/AgentActivity.png') }}" alt="Agent Activity" class="imageNav-photo"></a> <br>
+            <p>Online Payments</p>
+            <a href="{{ url_for('static', filename='resources/payments.html') }}"><img src="{{ url_for('static', filename='resources/assets/payments.png') }}" alt="Online Payments" class="imageNav-photo"></a>
+            <p>Online vs Agent Trends</p>
+            <a href="{{ url_for('static', filename='resources/agenttrends.html') }}"><img src="{{ url_for('static', filename='resources/assets/onlinefailurevsagentactivity.png') }}" alt="Agent Trends" class="imageNav-photo"></a>
+          </div>
+        </div>
+      </section>
+      <!-- End of the Visualizations imageNav Area -->
+
+    </div>
+  </section>
+</div>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small cyan darken-3">
+
+        <!-- Footer Elements -->
+        <div class="container">
+      
+          <!-- Grid row-->
+          <div class="row">
+      
+            <!-- Grid column -->
+            <div class="col-md-12 py-5">
+              <div class="mb-5 flex-center">
+
+      
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+          <a href="https:/mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
+
+</body>
+</html>

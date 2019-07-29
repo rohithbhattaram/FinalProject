@@ -1,0 +1,160 @@
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 300px )  
+{
+ /* Giving our navbar some padding and a background color */
+
+  .navbar {
+
+    padding: 2px;
+    background:gray;
+  }
+  
+  /* Making our navbar li's inline-block elements this makes it so we can have multiple on the same line. Floats could have been used too */
+  img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width:  400px;
+    height: 300px;
+  }
+
+  .navbar-brand
+  {
+      background-color:lightseagreen;
+      font-size: 30px;
+      font-family: "Times New Roman";
+      color: lightseagreen;
+ 
+  }
+  .imageNav-photo
+  {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 2px;
+      width: 200px;
+      height: 100px;
+  
+  }
+
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px)  
+
+{
+    .navbar {
+
+        padding: 3px;
+        background:gray;
+      }
+ /* Giving our navbar some padding and a background color */
+
+  /* Making our navbar li's inline-block elements this makes it so we can have multiple on the same line. Floats could have been used too */
+  img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 550px;
+    height: 420px;
+  }
+
+  .navbar-brand
+  {
+      background-color: lightseagreen;
+      font-size: 35px;
+      font-family: "Times New Roman";
+      font-weight: bolder;
+      color: lightseagreen;
+ 
+  }
+  .imageNav-photo
+  {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 2px;
+      width: 250px;
+      height: 150px;
+  
+  }
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px)  
+{
+    .navbar {
+
+        padding: 5px;
+        background:gray;
+      }
+     /* Giving our navbar some padding and a background color */
+    
+      
+      /* Making our navbar li's inline-block elements this makes it so we can have multiple on the same line. Floats could have been used too */
+      img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 600px;
+        height: 510px;
+      }
+      .navbar-brand
+      {
+          background-color: lightseagreen;
+          font-size: 40px;
+          font-family: "Times New Roman";
+          font-weight: bolder;
+          color: lightseagreen;
+     
+      }
+.imageNav-photo
+{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px;
+    width: 290px;
+    height: 200px;
+
+}
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px)  
+{
+    .navbar {
+
+        padding: 8px;
+        background:gray;
+      }
+     /* Giving our navbar some padding and a background color */
+ 
+      
+      /* Making our navbar li's inline-block elements this makes it so we can have multiple on the same line. Floats could have been used too */
+      img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 700px;
+        height: 570px;
+      }
+
+.navbar-brand
+  {
+      background-color: lightseagreen;
+      font-size: 50px;
+      font-family: "Times New Roman";
+      font-weight: bold;
+      color: lightseagreen;
+ 
+  }
+
+.imageNav-photo
+{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px;
+    width: 320px;
+    height: 230px;
+
+}
+}
